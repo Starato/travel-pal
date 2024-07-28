@@ -1,0 +1,61 @@
+$white: #ffffff;
+$graphite: #343434;
+
+$cream: #f9f1f0;
+$rose-quartz: #fadcd9;
+$dusty-rose: #f8afa6;
+$coral: #f79489;
+$hot-pink: #ffaebc;
+$cream-yellow: #fbe7c6;
+$yellow: #fbe7c6;
+$mint: #b4f8c8;
+$tiffany-blue: #a0e7e5;
+$royal-blue: #344D8B; //header dark blue
+
+//gradients:
+
+//landing page background
+$light-royal-blue: #6f8dda;
+$lavendar: #9f76f6;
+$pastel-pink: #f3a8ff;
+$light-pink: #fdecff;
+
+//button gradient
+$light-blue: #6d96fb;
+$light-pink-2: #fadcd9;
+//$hot-pink: the 3rd gradient is $hotpink
+
+//landing page content preview border gradient
+$cream-yellow-2: #ffe1be;
+$purple: #ba63ff;
+$light-royal-blue-2: #466fff;
+
+//landing page content preview glow gradient
+$cream-yellow-3: #ffedae;
+$light-purple: #9c60ff;
+$blue-purple: #8296ff;
+
+.globals { 
+  body { margin: 0px; }
+}
+
+.btn-base { 
+  cursor: pointer;
+  border: none;
+}
+
+.link-base { 
+  text-decoration: none;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }

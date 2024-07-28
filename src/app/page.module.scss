@@ -1,0 +1,114 @@
+@import 'globals';
+
+.header { 
+  background-color: $royal-blue;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  height: 6rem;
+
+  img { 
+    transform: scale(0.70);
+    translate: -5rem 0rem;
+    align-self: center;
+    justify-self: start;
+  }
+
+  div:not(:last-child) { 
+    margin: auto;
+    min-width: max-content;
+    h1 { 
+      text-align: center; 
+      font-size: 50px;
+      margin: 0;
+      color: $white;
+    }
+  }
+
+  div:last-child { 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    * { font-size: 16px; }
+
+    a { 
+      @extend .link-base;
+      color: $white;
+      margin-right: 0.5rem;
+    }
+
+    a:hover { color: $mint; }
+
+
+    button {
+      position: relative;
+      margin: 0rem 2cap;
+      color: $royal-blue;
+      background-color: $white;
+      border-radius: 1rem;
+      width: 6rem;
+      height: 2.2rem;
+      transform-style: preserve-3d;
+      @extend .btn-base;
+    }
+
+    button:hover:before {
+      content: "";
+      position: absolute; 
+      inset: -3px;
+      background: linear-gradient(to right,
+        $light-blue, $light-pink-2, $hot-pink);
+      filter: blur(4px);
+      transform: translate3d(0px,0px,-1px);
+      border-radius: inherit;
+    }
+  }
+}
+
+/* Enable hover only on non-touch devices */
+// @media (hover: hover) and (pointer: fine) {
+//   .card:hover {
+//     background: rgba(var(--card-rgb), 0.1);
+//     border: 1px solid rgba(var(--card-border-rgb), 0.15);
+//   }
+
+//   .card:hover span {
+//     transform: translateX(4px);
+//   }
+// }
+
+// @media (prefers-reduced-motion) {
+//   .card:hover span {
+//     transform: none;
+//   }
+// }
+
+/* Mobile */
+// @media (max-width: 700px) {
+
+// }
+
+/* Tablet and Smaller Desktop */
+// @media (min-width: 701px) and (max-width: 1120px) {
+  
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   .vercelLogo {
+//     filter: invert(1);
+//   }
+
+//   .logo {
+//     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+//   }
+// }
+
+// @keyframes rotate {
+//   from {
+//     transform: rotate(360deg);
+//   }
+//   to {
+//     transform: rotate(0deg);
+//   }
+// }
