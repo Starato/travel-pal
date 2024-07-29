@@ -1,5 +1,27 @@
 @import 'globals';
 
+.main-btn-base {
+  @extend .btn-base;
+  position: relative;
+  border: none;
+  border-radius: 1rem;
+  background-color: $white;
+  color: $royal-blue;
+  height: 2.2rem;
+  transform-style: preserve-3d;
+}
+
+.main-btn-base-hover { 
+  content: "";
+  position: absolute; 
+  inset: -3px;
+  background: linear-gradient(to right,
+    $light-blue, $light-pink-2, $hot-pink);
+  filter: blur(5px);
+  transform: translate3d(0px,0px,-1px);
+  border-radius: inherit;
+}
+
 .header { 
   background-color: $royal-blue;
   display: grid;
@@ -40,30 +62,143 @@
 
     a:hover { color: $mint; }
 
+    button {
+      @extend .main-btn-base;
+      margin: 0rem 2cap;
+      width: 6rem;
+    }
+
+    button:hover:before { @extend .main-btn-base-hover }
+  }
+}
+
+
+.content { 
+  height: 100vh;
+  min-height: max-content;
+  background: linear-gradient(75deg, 
+    $light-royal-blue, $lavendar, $pastel-pink 65%, $light-pink, $white 95%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+
+  .content-description { 
+    translate: 0rem 5rem;
+    min-height: max-content;
+    height: fit-content;
+    min-width: max-content;
+    width: 40%;
+    
+    span { 
+      font-weight: 500;
+      font-size: 50px;
+      color: $white;
+    }
+
+    p { 
+      width: 27rem;
+      color: $white;
+    }
 
     button {
-      position: relative;
-      margin: 0rem 2cap;
-      color: $royal-blue;
-      background-color: $white;
-      border-radius: 1rem;
-      width: 6rem;
-      height: 2.2rem;
-      transform-style: preserve-3d;
-      @extend .btn-base;
+      @extend .main-btn-base;
+      width: 9rem;
     }
 
-    button:hover:before {
-      content: "";
-      position: absolute; 
-      inset: -3px;
-      background: linear-gradient(to right,
-        $light-blue, $light-pink-2, $hot-pink);
-      filter: blur(4px);
-      transform: translate3d(0px,0px,-1px);
+    button:hover:before { @extend .main-btn-base-hover; }
+  }
+
+  .content-description > * { margin: 2rem 0rem; }
+
+  .journal {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    border-radius: 3rem;
+    background-color: $cream;
+    transform-style: preserve-3d;
+    translate: 100% -55%;
+
+    .journal-left {
       border-radius: inherit;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 60%;
+      height: 350px;
+      margin: 0;
+      overflow: hidden;
+
+      img { 
+        position: relative;
+        top: -10px;
+        left: -225px;
+        margin: 0;
+      }
+    }
+
+    .journal-right {
+      width: fit-content;
+      padding: 1rem;
+
+      .journal-detail {
+        height: 2rem;
+        margin-top: 0.5rem;
+
+        span { color: $graphite; }
+
+        img { 
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      .journal-detail:first-of-type { margin-top: 1rem; }
+
+      .journal-detail:nth-child(-n+4):not(:first-child) {
+        display: flex;
+      }
+      .journal-detail:nth-child(-n+4):not(:first-child) > div:first-of-type {
+        width: max-content;
+        margin-right: 1rem;
+      }
+
+      .journal-detail > div > span { font-size: 12px; }
+      
+      .journal-detail:first-of-type > span { font-size: 16px; }
+
+      .journal-detail:last-child > img { 
+        margin-top: 1rem; 
+        width: 150px !important;
+        height: 100px !important;
+      }
     }
   }
+
+  //back glow
+  .journal:before { 
+    content: "";
+    position: absolute; 
+    inset: -10px;
+    background: linear-gradient(1.05turn,
+      $blue-purple, $light-purple, $cream-yellow-3);
+    filter: blur(8px);
+    transform: translate3d(0px,0px,-1px);
+    border-radius: inherit;
+  }
+
+  //border
+  .journal:after { 
+    content: "";
+    position: absolute; 
+    inset: -3px;
+    background: linear-gradient(1.05turn,
+      $blue-purple, $purple, $cream-yellow-3);
+    transform: translate3d(0px,0px,-1px);
+    border-radius: inherit;
+  }
+  
 }
 
 /* Enable hover only on non-touch devices */

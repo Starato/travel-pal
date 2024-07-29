@@ -36,17 +36,22 @@ $light-purple: #9c60ff;
 $blue-purple: #8296ff;
 
 .globals { 
-  body { margin: 0px; }
+  body { 
+    margin: 0px; 
+    width: 100vw;
+  }
 }
 
 .btn-base { 
   cursor: pointer;
   border: none;
+  width: 6rem;
 }
 
 .link-base { 
   text-decoration: none;
 }
+
 
 // @media (prefers-color-scheme: dark) {
 //   :root {
