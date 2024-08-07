@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./register.module.scss";
 import Link from "next/link";
+import Image from "next/image";
+import Visibility from "../../../public/visibility.png";
+
 
 export default function page() {
   return (
@@ -12,16 +15,15 @@ export default function page() {
             <input type="text" placeholder="Email"/>
           </div>
           <div>
+            <Image src={Visibility} alt="show password"/>
             <input type="text" placeholder="Password"/>
           </div>
-          <Link href="" className={styles["link-base"]}>Forgot Password?</Link>
+          <Link href="">Forgot Password?</Link>
           <div>
             <button>Sign in</button>
           </div>
         </div>
         <div>
-          <span>Forgot Password?</span>
-          <span>Don't have an account?</span>
           <button>Sign Up Here!</button>
         </div>
         <div>
