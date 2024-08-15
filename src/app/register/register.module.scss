@@ -6,20 +6,37 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-height: 100%;
     width: 100vw;
-    color: $white;
+    color: $graphite;
+    background: linear-gradient(130deg,
+        $royal-blue, $light-royal-blue, $blue-purple, $light-purple);
+    box-shadow: inset 0 0 175px rgba(255, 255, 255, 0.3);
+    overflow-y: scroll;
 
     a, a:visited { 
-        text-align: center; 
-        color: $mint; 
+        width: max-content;
+        margin: auto;
+        color: $graphite;
+        font-size: 14px;
     }
 
     .register-form {
-        width: 30rem;
-        height: 35rem;
-        background: linear-gradient(130deg,
-            $royal-blue, $light-royal-blue, $blue-purple, $light-purple);
+        margin: auto;
+        width: 25rem;
+        // height: 40rem;
+        height: auto;
+        background-color: $white;
         border-radius: 1rem;
+    }
+
+    .register-form > div > div > img { 
+        @extend .clickable;
+        position: absolute;
+        right: 15%;
+        align-self: center;
+        width: 24px;
+        height: 24px;
     }
 
     .register-form > div:first-child {
@@ -27,11 +44,12 @@
         display: grid;
         grid-template-rows: repeat(4, 100%);     
                 
-        :nth-child(n) { margin-top: 1rem; }
+        :nth-child(n) { margin-top: 1.5rem; }
 
         h1 { 
             margin-top: 3rem !important;
             text-align: center; 
+            color: $graphite;
         }
 
         div:nth-child(2), div:nth-child(3) { 
@@ -40,17 +58,169 @@
         }
 
         div > input { 
-            height: 2.5rem;
+            height: 3rem;
             width: 70%;
-            border-radius: 0.5rem;
             padding: 0rem 1rem;
+            border: none;
+            border-bottom: solid thin $graphite;
+        }
+        
+        div > label { 
+            position: absolute;
+            left: 3.3rem;
+            translate: 0px -10px;
+            background: linear-gradient(to right, transparent 0%,
+                $white 10%, $white 90%, transparent 100%);
+            z-index: 10;
+            text-align: center;
+            font-size: 14px;
         }
 
+        div > input:focus { 
+            border-radius: 0.5rem;
+            border: none;
+        }
     }
 
+    button {
+        @extend .btn-base;
+        margin: auto;
+        width: 18rem;
+        height: 2.5rem;
+        border-radius: 2rem;
+        font-size: larger;
+        color: $white;
+        background: linear-gradient(130deg,
+            $royal-blue, $light-royal-blue, $blue-purple, $light-purple);
+    }
 
+    button:hover { 
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    }
 
+    p { 
+        margin: auto;
+        margin-top: 0.5rem;
+        width: max-content;
+        cursor: pointer;
+        background: linear-gradient($graphite 0 0) bottom left/ var(--width, 0%) 2px no-repeat;
+        text-decoration: none;
+        transition: background-size 0.5s;
+        font-size: 14px;
+    }
+
+    p:hover { --width: 100%; }
+
+    .form-change-wrapper { 
+        margin-bottom: 4.8rem; 
+        position: relative;
+    }
+
+    .form-change-wrapper > label {
+        position: absolute;
+        translate: 12rem 2.4rem;
+        background: linear-gradient(to right, transparent,
+            $white 10%, $white 90%, transparent);
+        width: 2rem;
+        text-align: center;
+        min-width: max-content;
+        z-index: 1;
+    }
+
+    .form-change-wrapper:after { 
+        content: '';
+        position: absolute;
+        width: 23rem;
+        height: 1px;
+        translate: 1rem 2rem;
+        background-color: $graphite;   
+    }
 }
 
+.gsi-wrapper { 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.gsi-material-button {
+    border-radius: 1rem;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    outline: none;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+    max-width: 400px;
+    min-width: min-content;
+}
+  
+.gsi-material-button-icon {
+    height: 20px;
+    margin-right: 12px;
+    min-width: 20px;
+    width: 20px;
+}
+
+.gsi-material-button-content-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.gsi-material-button-contents {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
+.gsi-material-button-state {
+    transition: opacity .218s;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.gsi-material-button:disabled {
+    cursor: default;
+    background-color: #ffffff61;
+    border-color: #1f1f1f1f;
+}
+
+.gsi-material-button:disabled .gsi-material-button-contents {
+    opacity: 38%;
+}
+
+.gsi-material-button:disabled .gsi-material-button-icon {
+    opacity: 38%;
+}
+
+.gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+.gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+    background-color: #303030;
+    opacity: 12%;
+}
+
+.gsi-material-button:not(:disabled):hover {
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+    opacity: 8%;
+}
+  
 
 
