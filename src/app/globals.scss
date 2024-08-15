@@ -42,8 +42,12 @@ $blue-purple: #8296ff;
   }
 }
 
-.btn-base { 
+.clickable { 
   cursor: pointer;
+}
+
+.btn-base { 
+  @extend .clickable;
   border: none;
   width: 6rem;
 }
@@ -51,6 +55,8 @@ $blue-purple: #8296ff;
 .link-base { 
   text-decoration: none;
 }
+
+.hidden-placehold { visibility: hidden; }
 
 
 // @media (prefers-color-scheme: dark) {

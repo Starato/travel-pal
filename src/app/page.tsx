@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Plane from "../../public/landingPage/plane.png";
 import BigBen from "../../public/landingPage/big-ben.webp";
@@ -8,6 +10,7 @@ import PseudoText from "../../public/landingPage/pseudo_text.png";
 import styles from "./page.module.scss";
 import { Kaushan_Script } from "next/font/google";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const kaushan = Kaushan_Script({
   subsets: ["latin"],
@@ -16,6 +19,8 @@ const kaushan = Kaushan_Script({
 });
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <main>
       <div className={styles.header}>
@@ -24,8 +29,8 @@ export default function Home() {
             <h1 className={kaushan.className}>Travel Pal</h1>
           </div>
           <div>
-            <Link href="">Sign in</Link>
-            <button>Sign up</button>
+            <Link href="/register">Sign in</Link>
+            <button onClick={() => router.push('/register')}>Sign up</button>
           </div>
       </div>
       <div className={styles.content}>
@@ -37,7 +42,7 @@ export default function Home() {
             travel planner, Travel Pal.
           </p>
 
-          <button>Create my journal</button>
+          <button onClick={() => router.push('/register')}>Create my journal</button>
 
           <div className={styles.journal}>
             <div className={styles["journal-left"]}>
